@@ -115,7 +115,7 @@ body {
   width: 50%;
   height: 100%;
   transform: translateX(0);
-  background-color: rgb(170, 231, 1);
+  background-color: black;
   animation: thirdAnimationR var(--third-animation) var(--thirdEnd-delay)
     var(--cubic) forwards;
 }
