@@ -18,7 +18,6 @@ body {
   background-color: var(--bg-color);
 }
 .landing_wrapper {
-  background-color: #000;
   color: #ffff;
   width: 100%;
   height: 100vh;
@@ -26,8 +25,10 @@ body {
   opacity: 1;
   visibility: visible;
   overflow: hidden;
+  background-color: transparent;
   animation: landingRemove var(--landing-animation) var(--landingEnd-delay)
     var(--cubic) forwards;
+  z-index: 999999;
 }
 .landing_wrapper * {
   padding: 0;
@@ -44,6 +45,7 @@ body {
   transform: translateY(-50%);
   width: 100%;
   display: flex;
+  z-index: 100;
   justify-content: center;
 }
 .first_animation {
@@ -92,8 +94,29 @@ body {
 .landing_wrapper > .third_animation {
   background-color: var(--bg-color);
   height: 100vh;
-  transform: translateY(-50%) scaleX(0);
+  display: flex;
+  width: 100%;
+  z-index: 50;
+  background-color: transparent;
+  /* transform: translateY(-50%) scaleX(0); */
+  /* z-index: 1; */
+  /* animation: thirdAnimation var(--third-animation) var(--thirdEnd-delay)
+    var(--cubic) forwards; */
+}
+.third-1 {
+  width: 50%;
+  background-color: black;
+  height: 100%;
+  transform: translateX(0);
   animation: thirdAnimation var(--third-animation) var(--thirdEnd-delay)
+    var(--cubic) forwards;
+}
+.third-2 {
+  width: 50%;
+  height: 100%;
+  transform: translateX(0);
+  background-color: rgb(170, 231, 1);
+  animation: thirdAnimationR var(--third-animation) var(--thirdEnd-delay)
     var(--cubic) forwards;
 }
 
@@ -139,15 +162,20 @@ body {
 
 @keyframes thirdAnimation {
   to {
-    transform: translateY(-50%) scaleX(1);
+    transform: translateX(-100%);
+  }
+}
+@keyframes thirdAnimationR {
+  to {
+    transform: translateX(100%);
   }
 }
 
 @keyframes landingRemove {
   0% {
     height: 100vh;
-    opacity: 1;
-    visibility: visible;
+    opacity: 0;
+    visibility: hidden;
   }
   80% {
     opacity: 0;
